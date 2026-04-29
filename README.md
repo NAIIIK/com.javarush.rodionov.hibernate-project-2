@@ -32,4 +32,4 @@ A Java Hibernate project #2 | JavaRush University
 
 ## Configuration
 
-Edit `src/main/resources/hibernate.properties`:
+Edit `src/main/resources/hibernate.properties`
