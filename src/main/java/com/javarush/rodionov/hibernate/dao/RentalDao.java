@@ -3,9 +3,7 @@ package com.javarush.rodionov.hibernate.dao;
 import com.javarush.rodionov.hibernate.entity.*;
 import com.javarush.rodionov.hibernate.util.HibernateUtil;
 import com.javarush.rodionov.hibernate.util.QueryUtil;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

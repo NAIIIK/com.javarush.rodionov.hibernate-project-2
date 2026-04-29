@@ -4,9 +4,7 @@ import com.javarush.rodionov.hibernate.entity.Address;
 import com.javarush.rodionov.hibernate.entity.Customer;
 import com.javarush.rodionov.hibernate.entity.Store;
 import com.javarush.rodionov.hibernate.util.HibernateUtil;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 public class CustomerDao {
 
