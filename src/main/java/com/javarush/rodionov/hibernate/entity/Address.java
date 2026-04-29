@@ -1,9 +1,8 @@
-package com.javarush.rodionov.hibernate;
+package com.javarush.rodionov.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -20,7 +19,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "address_id")
+    @Column(name = "address_id", columnDefinition = "smallint unsigned")
     private Integer id;
 
     @Column(name = "address", length = 50)
@@ -42,7 +41,6 @@ public class Address {
     @Column(name = "phone",  length = 20)
     private String phone;
 
-    @UpdateTimestamp
-    @Column(name = "last_update", nullable = false)
+    @Column(name = "last_update", nullable = false, insertable = false, updatable = false)
     private LocalDateTime lastUpdate;
 }

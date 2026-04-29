@@ -1,4 +1,4 @@
-package com.javarush.rodionov.hibernate;
+package com.javarush.rodionov.hibernate.entity;
 
 public enum Rating {
     G,

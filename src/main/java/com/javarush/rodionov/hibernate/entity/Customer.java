@@ -1,10 +1,9 @@
-package com.javarush.rodionov.hibernate;
+package com.javarush.rodionov.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -23,7 +22,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", columnDefinition = "smallint unsigned")
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -50,8 +49,7 @@ public class Customer {
     @Column(name = "create_date", nullable = false)
     private LocalDateTime createDate;
 
-    @UpdateTimestamp
-    @Column(name = "last_update")
+    @Column(name = "last_update", insertable = false,  updatable = false)
     private LocalDateTime lastUpdate;
 
     @PrePersist

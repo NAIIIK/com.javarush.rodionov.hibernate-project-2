@@ -1,4 +1,4 @@
-package com.javarush.rodionov.hibernate;
+package com.javarush.rodionov.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -16,7 +16,7 @@ public class FilmText {
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    @JoinColumn(name = "film_id")
+    @JoinColumn(name = "film_id", columnDefinition = "smallint")
     private Film film;
 
     @Column(name = "title", nullable = false)

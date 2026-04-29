@@ -1,9 +1,8 @@
-package com.javarush.rodionov.hibernate;
+package com.javarush.rodionov.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -20,7 +19,7 @@ import java.util.Set;
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "actor_id")
+    @Column(name = "actor_id", columnDefinition = "smallint unsigned")
     private Integer id;
 
     @Column(name = "first_name", length = 45)
@@ -32,7 +31,6 @@ public class Actor {
     @ManyToMany(mappedBy = "actors",  fetch = FetchType.LAZY)
     private Set<Film> films;
 
-    @UpdateTimestamp
-    @Column(name = "last_update", nullable = false)
+    @Column(name = "last_update", nullable = false, insertable = false, updatable = false)
     private LocalDateTime lastUpdate;
 }

@@ -1,9 +1,8 @@
-package com.javarush.rodionov.hibernate;
+package com.javarush.rodionov.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -24,7 +23,7 @@ public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "film_id")
+    @Column(name = "film_id", columnDefinition = "smallint unsigned")
     private Integer id;
 
     @Column(name = "title", length = 128, nullable = false)
@@ -33,7 +32,7 @@ public class Film {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "release_year")
+    @Column(name = "release_year", columnDefinition = "year")
     private Integer releaseYear;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -44,8 +43,8 @@ public class Film {
     @JoinColumn(name = "original_language_id")
     private Language originalLanguage;
 
-    @Column(name = "rental_duration", nullable = false)
-    private Short rentalDuration;
+    @Column(name = "rental_duration", nullable = false, columnDefinition = "tinyint unsigned")
+    private Integer rentalDuration;
 
     @Column(name = "rental_rate", precision = 4, scale = 2, nullable = false)
     private BigDecimal rentalRate;
@@ -79,7 +78,6 @@ public class Film {
     )
     private Set<Category> categories;
 
-    @UpdateTimestamp
-    @Column(name = "last_update", nullable = false)
+    @Column(name = "last_update", nullable = false, insertable = false, updatable = false)
     private LocalDateTime lastUpdate;
 }
