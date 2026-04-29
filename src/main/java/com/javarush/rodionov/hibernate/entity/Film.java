@@ -60,7 +60,7 @@ public class Film {
     private Rating rating;
 
     @Column(name = "special_features")
-    private String special_features;
+    private String specialFeatures;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
