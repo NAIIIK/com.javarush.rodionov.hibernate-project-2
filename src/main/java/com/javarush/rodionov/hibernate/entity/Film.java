@@ -1,5 +1,6 @@
 package com.javarush.rodionov.hibernate.entity;
 
+import com.javarush.rodionov.hibernate.converter.RatingConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -55,8 +56,8 @@ public class Film {
     @Column(name = "replacement_cost", precision = 5,  scale = 2, nullable = false)
     private BigDecimal replacementCost;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "rating")
+    @Convert(converter = RatingConverter.class)
+    @Column(name = "rating", columnDefinition = "enum('G','PG','PG-13','R','NC-17')")
     private Rating rating;
 
     @Column(name = "special_features")
