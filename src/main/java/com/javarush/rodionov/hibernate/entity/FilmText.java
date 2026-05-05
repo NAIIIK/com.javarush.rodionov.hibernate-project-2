@@ -3,6 +3,7 @@ package com.javarush.rodionov.hibernate.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "film_text")
